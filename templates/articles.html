@@ -1,0 +1,58 @@
+{% extends "layout.html" %}
+
+{% block body %}
+<h3>Son haberler</h3>
+<hr>
+    
+        
+            <ul class="list-group">
+            
+            {% for article in articles %}
+                
+                <li class="list-group-item post"><a href="articles/{{article.id}}"><img style="float: left;" src={{article.picture}} width="240" height="135"></a>
+                <a href="articles/{{article.id}}"><h3> {{article.title}}</h3></a>
+                
+            </li>
+                {% endfor %}
+                </ul>
+                {% if page ==1%}
+                <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item disabled"><a class="page-link" href="#">Önceki</a></li>
+                          <li class="page-item disabled"><a class="page-link" href="#">{{page}}</a></li>
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page_2}}">{{page_2}}</a></li>
+                          <li class="page-item "><a class="page-link" href="/articles/page/{{page_2}}">Sonraki</a></li>
+                        </ul>
+                      </nav>
+                      {% elif result_2==0%}
+                <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page_1}}">Önceki</a></li>
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page_1}}">{{page_1}}</a></li>
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page}}">{{Page}}</a></li>
+                
+                          <li class="page-item disabled"><a class="page-link" href="/articles/page/{{page_2}}">Sonraki</a></li>
+                        </ul>
+                      </nav>
+                {% else %}
+                <nav aria-label="Page navigation example">
+                        <ul class="pagination">
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page_1}}">Önceki</a></li>
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page_1}}">{{page_1}}</a></li>
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page}}">{{Page}}</a></li>
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page_2}}">{{page_2}}</a></li>
+                          <li class="page-item"><a class="page-link" href="/articles/page/{{page_2}}">Sonraki</a></li>
+                        </ul>
+                      </nav>
+                  {% endif %}
+                
+        
+        
+        
+          
+        
+
+
+
+ 
+{% endblock body %}
